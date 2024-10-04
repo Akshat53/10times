@@ -1,0 +1,136 @@
+.listing-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .filter-buttons {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 5px;
+  }
+  
+  .filter-buttons button {
+    background: none;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+  
+  .filter-buttons button.active {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .events-list {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  
+  .event-card {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .event-date {
+    width: 60px;
+    text-align: center;
+    margin-right: 20px;
+  }
+  
+  .event-day {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .event-weekday {
+    color: #666;
+  }
+  
+  .event-details {
+    flex-grow: 1;
+  }
+  
+  .event-time {
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .event-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .event-organizer, .event-location {
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .event-attendees {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .event-status {
+    background-color: #e6f7ff;
+    color: #1890ff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  
+  .attendee-avatars {
+    display: flex;
+    margin-right: 10px;
+  }
+  
+  .attendee-avatars img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: -10px;
+  }
+  
+  .attendee-count {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .event-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
+  
+  .create-event-button {
+    display: inline-block;
+    background-color: #1890ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+  }
