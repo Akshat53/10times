@@ -1,20 +1,33 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import CreateEvent from './views/CreateEvent'
-import Events from './views/Events'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+import Events from './views/Events';
+import CreateEvent from './views/CreateEvent';
+
+const App = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const storedEvents = JSON.parse(localStorage.getItem('events') || '[]');
+    setEvents(storedEvents);
+  }, []);
+
+  const addEvent = (newEvent) => {
+    const updatedEvents = [...events, newEvent];
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  };
+
   return (
-    <>
-      <BrowserRouter>
+    <Router>
+      <div className="min-h-screen bg-gray-100">
         <Routes>
-        <Route path="/" exact element={<CreateEvent/>}></Route>
-          <Route path="/Events" exact element={<Events/>}></Route>
+          <Route path="/" element={<Events events={events} />} />
+          <Route path="/create" element={<CreateEvent addEvent={addEvent} />} />
         </Routes>
-      </BrowserRouter>
-    </>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

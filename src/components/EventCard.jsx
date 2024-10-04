@@ -1,52 +1,28 @@
-import React from "react";
-import { Card, Space, Row, Col, Badge } from "antd";
-import Styles from "../components/components.module.css";
-import Badage from "./Badage";
-import {
-  VideoCameraOutlined,
-  GitlabFilled,
-  ClockCircleFilled,
-} from "@ant-design/icons";
+import React from 'react';
+import { Calendar, Clock, MapPin } from 'lucide-react';
 
-const EventCard = (props) => {
-  const { title, time, postedBy, mode, name, src, badge } = props;
+const EventCard = ({ event }) => {
   return (
-    <Space direction="vertical" size={16}>
-      <Badge.Ribbon text={badge}>
-        <Card
-          style={{
-            width: "700px",
-            borderRadius: "15px",
-          }}
-        >
-          <Row className={Styles.eventCard}>
-            <Col style={{width:"70%"}}>
-              <h3>{title}</h3>
-              <p className={Styles.font}>
-                <ClockCircleFilled /> {time}
-              </p>
-              <p className={Styles.font}>
-                <GitlabFilled /> {postedBy}
-              </p>
-              <p className={Styles.font}>
-                <VideoCameraOutlined /> {mode}
-              </p>
-              <Badage/>
-
-            </Col>
-            <Col style={{ padding: "30px 20px" }}>
-              <img
-                src={src}
-                width="100%"
-                height="100px"
-                alt={name}
-                style={{ borderRadius: "200px" }}
-              />
-            </Col>
-          </Row>
-        </Card>
-      </Badge.Ribbon>
-    </Space>
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      {event.image && (
+        <img src={event.image} alt={event.title} className="w-full h-48 object-cover" />
+      )}
+      <div className="p-6">
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">{event.title}</h2>
+        <div className="flex items-center text-gray-600 mb-2">
+          <Calendar size={16} className="mr-2" />
+          <span>{event.date}</span>
+        </div>
+        <div className="flex items-center text-gray-600 mb-2">
+          <Clock size={16} className="mr-2" />
+          <span>{event.time}</span>
+        </div>
+        <div className="flex items-center text-gray-600">
+          <MapPin size={16} className="mr-2" />
+          <span>{event.location}</span>
+        </div>
+      </div>
+    </div>
   );
 };
 
